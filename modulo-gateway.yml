@@ -9,16 +9,16 @@ spring:
       server:
         webmvc:
           routes:
-            - id: ms-alumnos
-              uri: lb://ms-alumnos
+            - id: modulo-alumnos
+              uri: lb://modulo-alumnos
               predicates:
                 - Path=/alumnos/**
-            - id: ms-cursos
-              uri: lb://ms-cursos
+            - id: modulo-cursos
+              uri: lb://modulo-cursos
               predicates:
                 - Path=/cursos/**
-            - id: ms-administracion
-              uri: lb://ms-administracion
+            - id: modulo-administracion
+              uri: lb://modulo-administracion
               predicates:
                 - Path=/personal/**
 
