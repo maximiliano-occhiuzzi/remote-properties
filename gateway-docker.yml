@@ -1,0 +1,28 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      server:
+        webmvc:
+          routes:
+            - id: modulo-alumnos
+              uri: lb://modulo-alumnos
+              predicates:
+                - Path=/alumnos/**
+            - id: modulo-cursos
+              uri: lb://modulo-cursos
+              predicates:
+                - Path=/cursos/**
+            - id: modulo-administracion
+              uri: lb://modulo-administracion
+              predicates:
+                - Path=/personal/**
+eureka:
+  client:
+    service-url:
+      defaultZone: http://registry:8761/eureka/
+  instance:
+    lease-renewal-interval-in-seconds: 10
